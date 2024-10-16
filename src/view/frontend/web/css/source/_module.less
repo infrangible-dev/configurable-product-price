@@ -1,0 +1,71 @@
+/**
+ * @author      Andreas Knollmann
+ * @copyright   Copyright (c) 2014-2024 Softwareentwicklung Andreas Knollmann
+ * @license     http://www.opensource.org/licenses/mit-license.php MIT
+ */
+
+& when (@media-common = true) {
+    .product-info-main {
+        .product-info-price {
+            .price-box {
+                .price-information {
+                    .lib-css(color, @color-gray40);
+                    .lib-font-size(20);
+                    font-weight: @font-weight__light;
+
+                    .price-container {
+                        > span {
+                            display: inline;
+                        }
+
+                        .price-wrapper {
+                            .price {
+                                .lib-font-size(20);
+                                font-weight: @font-weight__light;
+                            }
+                        }
+                    }
+                }
+
+                .old-price.no-display:has(.force-display) {
+                    display: table-cell;
+                }
+            }
+        }
+    }
+
+    .products-grid {
+        .product-items {
+            .product-item {
+                .product-item-info {
+                    .product-item-details {
+                        .price-box {
+                            .price-container {
+                                display: block;
+
+                                .price-information {
+                                    .lib-css(color, @color-gray40);
+                                    font-size: @font-size__s;
+                                }
+                            }
+
+                            .old-price {
+                                margin: 0;
+                            }
+
+                            .price-information {
+                                .price-container {
+                                    .price-wrapper {
+                                        .price {
+                                            font-weight: normal;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
