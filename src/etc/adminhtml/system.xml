@@ -20,7 +20,7 @@
                 <group id="label" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Label</label>
                     <depends>
-                        <field id="infrangible_catalogproductprice/price/enable">1</field>
+                        <field id="infrangible_catalogproductprice/final_price/enable">1</field>
                     </depends>
                     <field id="enable" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
                         <label>Enable</label>
@@ -43,7 +43,7 @@
                 <group id="information" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Information</label>
                     <depends>
-                        <field id="infrangible_catalogproductprice/price/enable">1</field>
+                        <field id="infrangible_catalogproductprice/final_price/enable">1</field>
                     </depends>
                     <field id="enable" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
                         <label>Enable</label>
