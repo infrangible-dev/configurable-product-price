@@ -116,6 +116,10 @@
                         </depends>
                     </field>
                 </group>
+                <field id="configurable_special_price" translate="label" type="select" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Show Configurable Special Price</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
             </group>
             <group id="min_price" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
                 <label>Min Price</label>

@@ -6,7 +6,10 @@ namespace Infrangible\CatalogProductPrice\Helper;
 
 use FeWeDev\Base\Arrays;
 use FeWeDev\Base\Variables;
+use Infrangible\CatalogProductPrice\Block\SpecialPrice;
 use Infrangible\Core\Helper\Block;
+use Infrangible\Core\Helper\Stores;
+use Magento\ConfigurableProduct\Pricing\Render\FinalPriceBox;
 
 /**
  * @author      Andreas Knollmann
@@ -39,6 +42,9 @@ class PriceBox
     /** @var Block */
     protected $blockHelper;
 
+    /** @var Stores */
+    protected $storeHelper;
+
     public function __construct(
         Arrays $arrays,
         Variables $variables,
@@ -47,7 +53,8 @@ class PriceBox
         MinPrice $minPriceHelper,
         MaxPrice $maxPriceHelper,
         Information $informationHelper,
-        Block $blockHelper
+        Block $blockHelper,
+        Stores $storeHelper
     ) {
         $this->arrays = $arrays;
         $this->variables = $variables;
@@ -57,6 +64,7 @@ class PriceBox
         $this->maxPriceHelper = $maxPriceHelper;
         $this->informationHelper = $informationHelper;
         $this->blockHelper = $blockHelper;
+        $this->storeHelper = $storeHelper;
     }
 
     public function updateDisplayLabel(\Magento\Framework\Pricing\Render\PriceBox $priceBox, array $arguments): array
@@ -118,5 +126,22 @@ class PriceBox
             'Infrangible_CatalogProductPrice::information.phtml',
             $templateData
         );
+    }
+
+    public function getSpecialPriceHtml(FinalPriceBox $priceBox): string
+    {
+        if ($this->storeHelper->getStoreConfigFlag(
+                'infrangible_catalogproductprice/old_price/configurable_special_price'
+            ) && $priceBox->isProductList() && $priceBox->hasSpecialPrice()) {
+
+            return $this->blockHelper->renderTemplateExtendedBlock(
+                $priceBox,
+                SpecialPrice::class,
+                'Infrangible_CatalogProductPrice::configurable/special_price.phtml',
+                ['price_box' => $priceBox]
+            );
+        }
+
+        return '';
     }
 }

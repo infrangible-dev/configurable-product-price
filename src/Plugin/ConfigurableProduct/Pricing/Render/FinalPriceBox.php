@@ -26,7 +26,8 @@ class FinalPriceBox
         \Magento\ConfigurableProduct\Pricing\Render\FinalPriceBox $subject,
         string $result
     ): string {
-        return $this->priceBoxHelper->getInformationHtml($subject) . $result;
+        return $this->priceBoxHelper->getInformationHtml($subject) . $result .
+            $this->priceBoxHelper->getSpecialPriceHtml($subject);
     }
 
     public function beforeRenderAmount(
