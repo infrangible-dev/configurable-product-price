@@ -64,7 +64,7 @@ class Amount
             return $result;
         }
 
-        return $result . $this->blockHelper->renderTemplateBlock(
+        return $result . $this->blockHelper->renderChildTemplateBlock(
                 $subject,
                 'Infrangible_CatalogProductPrice::price/information.phtml',
                 [

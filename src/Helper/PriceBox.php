@@ -120,7 +120,7 @@ class PriceBox
 
         $templateData[ 'include_container' ] = true;
 
-        return $this->blockHelper->renderTemplateExtendedBlock(
+        return $this->blockHelper->renderChildTemplateExtendedBlock(
             $priceBox,
             \Infrangible\CatalogProductPrice\Block\Information::class,
             'Infrangible_CatalogProductPrice::information.phtml',
@@ -134,7 +134,7 @@ class PriceBox
                 'infrangible_catalogproductprice/old_price/configurable_special_price'
             ) && $priceBox->isProductList() && $priceBox->hasSpecialPrice()) {
 
-            return $this->blockHelper->renderTemplateExtendedBlock(
+            return $this->blockHelper->renderChildTemplateExtendedBlock(
                 $priceBox,
                 SpecialPrice::class,
                 'Infrangible_CatalogProductPrice::configurable/special_price.phtml',
